@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+   <title>RF Switch Matrix Control</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <!-- Latest compiled and minified CSS -->
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+   <!-- Optional theme -->
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+   <!-- Latest compiled and minified JavaScript -->
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+   <h3>Relay Status</h3>
+   {% for pin in pins %}
+   {% if pins[pin].state == false %}
+      <div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-default" role="button">{{ pins[pin].name }} OFF</a></div></div>
+   {% else %}
+      <div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-primary" role="button">{{ pins[pin].name }} ON</a></div></div>
+   {% endif %}
+   {% endfor %}
+   
+   {% if pins[17].state == true %}
+       {% if pins[22].state == false %}
+           <h4> Ant1 = Rig1 </h4>
+       {% elif pins[22].state == true %}
+           <h4> Ant1 = Rig2 </h4>
+       {% endif %}
+    {% else %}
+       <h4> Ant1 term </h4>
+    {% endif %}
+      
+    {% if pins[18].state == true %}
+       {% if pins[23].state == false %}
+           <h4> Ant2 = Rig1 </h4>
+       {% elif pins[23].state == true %}
+           <h4> Ant2 = Rig2 </h4>
+       {% endif %}
+    {% else %}
+       <h4> Ant2 term </h4>
+    {% endif %}
+          
+    {% if pins[27].state == true %}
+       {% if pins[24].state == false %}
+           <h4> Ant3 = Rig1 </h4>
+       {% elif pins[24].state == true %}
+           <h4> Ant3 = Rig2 </h4>
+       {% endif %}
+    {% else %}
+       <h4> Ant3 term </h4>
+    {% endif %}          
+          
+   <img class="img-responsive" src="/static/images/blkdiag.png">
+</body>
+</html>
