@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>
+   <title>RF Switch Matrix Control</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <!-- Latest compiled and minified CSS -->
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+   <!-- Optional theme -->
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+   <!-- Latest compiled and minified JavaScript -->
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+   <h3>Relay Status</h3>
+   {% for pin in pins %}
+   {% if pins[pin].state == false %}
+      <div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-default" role="button">{{ pins[pin].name }} OFF</a></div></div>
+   {% else %}
+      <div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-primary" role="button">{{ pins[pin].name }} ON</a></div></div>
+   {% endif %}
+   {% endfor %}
+   
+   <p></p>
+   
+   <h3>Antenna Status</h3>
+   <!-- All Ants Term -->
+   <!-- {% if antstate == 'allterm' %} -->
+        <!-- <h4> All Ants Term </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/all_ants_term.png"> -->
+   <!-- {% endif %} -->
+   
+   <!-- Ant1 to Rig1 -->
+   <!-- {% if antstate == 'ant1rig1' %} -->
+        <!-- <h4> Ant1 = Rig1 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant1_rig1.png"> -->
+   <!-- {% endif %} -->
+                            
+   <!-- Ant1 to Rig2 -->
+   <!-- {% if antstate =='ant1rig2 %} -->
+        <!-- <h4> Ant1 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant1_rig2.png"> -->
+   <!-- {% endif %} -->
+   
+   <!-- Ant2 to Rig1 -->
+   <!-- {% if antstate == 'ant2rig1' %} -->
+        <!-- <h4> Ant2 = Rig1 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant2_rig1.png"> -->
+   <!-- {% endif %} -->
+
+   <!-- Ant2 to Rig2 -->
+   <!-- {% if antstate == 'ant2rig2' %} -->
+        <!-- <h4> Ant2 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant2_rig2.png">  -->
+   <!-- {% endif %} -->
+
+   <!-- Ant3 to Rig1 -->
+   <!-- {% if antstate == 'ant3rig1' %} -->
+        <!-- <h4> Ant3 = Rig1 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant3_rig1.png"> -->
+   <!-- {% endif %} -->
+
+   <!-- Ant3 to Rig2 -->
+   <!-- {% if antstate == 'ant3rig2' %} -->
+        <!-- <h4> Ant3 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant3_rig2.png">  -->
+   <!-- {% endif %} -->
+
+   <!-- Ant1 to Rig1 and Ant2 to Rig2 -->
+   <!-- {% if antstate == 'ant1rig1_ant2rig2' %} -->
+        <!-- <h4> Ant1 = Rig1, Ant2 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant1_rig1_ant2_rig2.png">  -->
+   <!-- {% endif %} -->
+                            
+   <!-- Ant1 to Rig2 and Ant2 to Rig1 -->
+   <!-- {% if antstate == 'ant1rig2_ant2rig1' %} -->
+        <!-- <h4> Ant1 = Rig2, Ant2 = Rig1 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant1_rig2_ant2_rig1.png"> -->
+   <!-- {% endif %} -->
+
+   <!-- Ant1 to Rig1 and Ant3 to Rig2 -->
+   <!-- {% if antstate == 'ant1rig1_ant3rig2' %} -->
+        <!-- <h4> Ant1 = Rig1, Ant3 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant1_rig1_ant3_rig2.png"> -->
+   <!-- {% endif %} -->
+
+   <!-- Ant1 to Rig2 and Ant3 to Rig1 -->
+   <!-- {% if antstate == 'ant1rig2_ant3rig1 %} -->
+        <!-- <h4> Ant1 = Rig2, Ant3 = Rig1 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant1_rig2_ant3_rig1.png"> -->
+   <!-- {% endif %} -->
+   
+   <!-- Ant2 to Rig1 and Ant3 to Rig2 -->
+   <!-- {% if antstate == 'ant2rig1_ant3rig2 %} -->
+        <!-- <h4> Ant2 = Rig1, Ant3 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant2_rig1_ant3_rig2.png"> -->
+   <!-- {% endif %} -->
+                            
+   <!-- Ant2 to Rig2 and Ant3 to Rig1 -->
+   <!-- {% if antstate == 'ant2rig2_ant3rig1' %} -->
+        <!-- <h4> Ant2 = Rig1, Ant3 = Rig2 </h4> -->
+        <!-- <img class="img-responsive" src="/static/images/ant2_rig2_ant3_rig1.png"> -->
+   <!-- {% endif %} -->
+
+   <!-- Undefined -->
+   <!-- {% if antstate == 'undefined' %} -->
+        <!-- <h4> Undefined State </h4> -->
+   <!-- {% endif %} -->
+   
+          
+</body>
+</html>
